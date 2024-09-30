@@ -1,0 +1,55 @@
+Setting up chemprop v1.7.1 for SpaceHASTEN (July 2024):
+
+0. Set up anaconda and create activation script like this (this is one is for
+anaconda installed in /data/programs/oce => modify to your path):
+
+__conda_setup="$('/data/programs/oce/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/data/programs/oce/etc/profile.d/conda.sh" ]; then
+        . "/data/programs/oce/etc/profile.d/conda.sh"
+    else
+        export PATH="/data/programs/oce/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+1. Download the source code: 
+
+wget https://github.com/chemprop/chemprop/archive/refs/tags/v1.7.1.tar.gz
+
+2. Extract the archive:
+
+tar xzf v1.7.1.tar.gz
+cd chemprop-1.7.1
+
+3. Set up anaconda environment and install the software:
+
+source /data/programs/oce/actoce
+conda create -y -n chemprop python=3.8
+conda activate chemprop
+mamba install -y pytorch=2.3.1 torchvision torchaudio pytorch-cuda=11.8 -c pytorch -c nvidia
+
+4. Check that PyTorch/GPU works:
+
+python3
+import torch
+torch.cuda.is_available()
+=> Should return True
+exit()
+
+5. Continue installation of chemprop in the anaconda enviroment:
+
+mamba env update -f environment.yml
+pip install -e .
+
+6. Check that training works with GPU:
+
+cd <your SpaceHASTEN source directory>
+chemprop_train --data_path example.csv --dataset_type regression --target_columns docking_score --save_dir testingtraining
+
+grep cuda testingtraing/verbose.log
+=> Should have line "'cude': True,'"
+
