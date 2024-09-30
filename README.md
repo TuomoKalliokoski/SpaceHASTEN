@@ -1,6 +1,4 @@
-SpaceHASTEN version 0.1
-Developed by Tuomo Kalliokoski, Orion Pharma <tuomo.kalliokoski at orionpharma.com>
-2024-09-10
+SpaceHASTEN version 0.1, Developed by Tuomo Kalliokoski, Orion Pharma <tuomo.kalliokoski at orionpharma.com>, 2024-09-10
 
 # Introduction
 
