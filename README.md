@@ -41,7 +41,7 @@ Download them from BiosolveIT:[https://www.biosolveit.de/chemical-spaces/]
 Enamine provides diverse sets of Enamine REAL compounds that are good sources of seed molecules for Enamine REALSpace searches.
 Download Enamine REAL lead-like subset:[https://enamine.net/compound-collections/real-compounds/real-database-subsets]
 
-For more information, please see the manuscript describing how the method works. FIXME: link to manuscript.
+For more information, please see the manuscript describing how the method works. [https://chemrxiv.org/engage/chemrxiv/article-details/66fa5756cec5d6c142a7aa01]
 
 # Installation and useage
 
